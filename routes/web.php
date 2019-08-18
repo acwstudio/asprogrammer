@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('dim.dim');
-});
+Route::get('/', 'SiteController@index')->name('site');
 
 Route::get('lang/{language}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
 Auth::routes();
