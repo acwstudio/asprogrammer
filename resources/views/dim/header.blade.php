@@ -2,6 +2,7 @@
 <header id="header">
     <div class="logo">
         <span class="icon {{ $site->header->icon }}"></span>
+        {{--<span class="fab fa-laravel fa-2x"></span>--}}
     </div>
     <div class="content">
         <div class="inner">
@@ -14,7 +15,7 @@
             <li><a href="#intro">{{ $site->intro->title }}</a></li>
             <li><a href="#work">{{ $site->work->title }}</a></li>
             <li><a href="#about">{{ $site->about->title }}</a></li>
-            <li><a href="#contact">{{ __('dimension.header.contact') }}</a></li>
+            <li><a href="#contact">{{ __('dimension.menu.contact') }}</a></li>
             <li>
                 @foreach (config('translatable.locales') as $lang => $language)
                     @if ($lang != app()->getLocale())

@@ -32,5 +32,25 @@ class RepoServiceProvider extends ServiceProvider
             'App\Repositories\Contracts\SiteInterface',
             'App\Repositories\DB_MySQL\SiteRepository'
         );
+
+        $this->app->bind(
+            'App\Repositories\Contracts\AboutInterface',
+            'App\Repositories\DB_MySQL\AboutRepository'
+        );
+
+        $this->app->bind(
+            'App\Repositories\Contracts\HeaderInterface',
+            'App\Repositories\DB_MySQL\HeaderRepository'
+        );
+
+        $this->app->bind(
+            'App\Repositories\Contracts\IntroInterface',
+            'App\Repositories\DB_MySQL\IntroRepository'
+        );
+
+        $this->app->bind(
+            'App\Repositories\Contracts\WorkInterface',
+            'App\Repositories\DB_MySQL\WorkRepository'
+        );
     }
 }

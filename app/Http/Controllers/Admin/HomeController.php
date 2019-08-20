@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 /**
  * Class HomeController
  *
- * @package App\Http\Controllers
+ * @package App\Http\Controllers\Admin
  */
 class HomeController extends Controller
 {

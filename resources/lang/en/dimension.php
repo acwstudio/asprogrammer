@@ -1,12 +1,15 @@
 <?php
 
 return [
-    'header' => [
-//        'title' => 'Modern web apps',
-//        'text' => 'Web applications created from scratch. No CMS WordPress and other programming simulations',
-//        'intro' => 'Intro',
-//        'work' => 'Work',
-//        'about' => 'About',
+    'menu' => [
         'contact' => 'Contact',
+    ],
+    'contact' => [
+        'name' => 'Name',
+        'email' => 'Email',
+        'message' => 'Message',
+        'send' => 'Send Message',
+        'reset' => 'Reset',
+        'title' => 'Contact',
     ],
 ];

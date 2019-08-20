@@ -1,24 +1,24 @@
 <!-- Contact -->
 <article id="contact">
-    <h2 class="major">Contact</h2>
+    <h2 class="major">{{ __('dimension.menu.contact') }}</h2>
     <form method="post" action="#">
         <div class="fields">
             <div class="field half">
-                <label for="name">Name</label>
+                <label for="name">{{ __('dimension.contact.name') }}</label>
                 <input type="text" name="name" id="name" />
             </div>
             <div class="field half">
-                <label for="email">Email</label>
+                <label for="email">{{ __('dimension.contact.email') }}</label>
                 <input type="text" name="email" id="email" />
             </div>
             <div class="field">
-                <label for="message">Message</label>
+                <label for="message">{{ __('dimension.contact.message') }}</label>
                 <textarea name="message" id="message" rows="4"></textarea>
             </div>
         </div>
         <ul class="actions">
-            <li><input type="submit" value="Send Message" class="primary" /></li>
-            <li><input type="reset" value="Reset" /></li>
+            <li><input type="submit" value="{{ __('dimension.contact.send') }}" class="primary" /></li>
+            <li><input type="reset" value="{{ __('dimension.contact.reset') }}" /></li>
         </ul>
     </form>
     <ul class="icons">
