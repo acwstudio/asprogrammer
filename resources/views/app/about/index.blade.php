@@ -56,3 +56,7 @@
     </div>
 
 @endsection
+
+@section('script')
+    @include('app.about.scripts.index')
+@endsection

@@ -60,12 +60,13 @@ class HeaderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @return array|string
+     * @throws \Throwable
      */
     public function show($id)
     {
-        //
+        return $this->header->srvShow($id);
     }
 
     /**

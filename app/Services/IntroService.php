@@ -42,4 +42,21 @@ class IntroService
 
         return view('app.intro.index', compact('intros'))->render();
     }
+
+    /**
+     * @param int $id
+     * @return array|string
+     * @throws \Throwable
+     */
+    public function srvShow(int $id)
+    {
+        $imgPath = asset('/') . config('asprogrammer.paths.article_image');
+
+        $intro = $this->srvIntro->getById($id, $relations = ['site']);
+        $intro->image = $imgPath . $intro->img_name . '.' . $intro->img_extension;
+        $intro->text = Str::limit($intro->text, 50, '...');
+        $intro->active = $intro->site ? 1 : 0;
+
+        return view('app.intro.show', compact('intro'))->render();
+    }
 }

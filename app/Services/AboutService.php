@@ -44,6 +44,23 @@ class AboutService
     }
 
     /**
+     * @param int $id
+     * @return array|string
+     * @throws \Throwable
+     */
+    public function srvShow(int $id)
+    {
+        $imgPath = asset('/') . config('asprogrammer.paths.article_image');
+
+        $about = $this->srvAbout->getById($id, $relations = ['site']);
+        $about->image = $imgPath . $about->img_name . '.' . $about->img_extension;
+        $about->text = Str::limit($about->text, 50, '...');
+        $about->active = $about->site ? 1 : 0;
+
+        return view('app.about.show', compact('about'))->render();
+    }
+
+    /**
      * @return array|string
      * @throws \Throwable
      */

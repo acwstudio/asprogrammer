@@ -22,7 +22,8 @@
 
 </head>
 <body>
-<div id="app">
+<div id="app"></div>
+<div id="">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -149,5 +150,24 @@
         @yield('content')
     </main>
 </div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="card mb-3">
+                    <div class="card-header text-center">
+                        <img src="{{ asset('app/images/loader.gif') }}" width="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ asset('app/js/asprogrammer.js') }}"></script>
+@yield('script')
+
 </body>
 </html>

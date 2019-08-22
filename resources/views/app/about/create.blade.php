@@ -32,7 +32,7 @@
                                         <textarea id="form_body" class="form-control @error('body') is-invalid @enderror" name="text"
                                                   placeholder="{{ __('forms.ph-post.text') }}">{{ old('text') }}</textarea>
 
-                                        @error('body')
+                                        @error('text')
                                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                         @enderror
                                     </div>
