@@ -19,4 +19,18 @@ return [
             'edit' => 'Edit Work',
         ],
     ],
+
+    'fields' => [
+        'title' => 'Title',
+        'text' => 'Text',
+        'active' => 'On/Off',
+        'description' => 'Description',
+        'image' => 'Image',
+    ],
+
+    'ph' => [
+        'title' => 'Type title...',
+        'text' => 'Write something awesome...',
+        'description' => 'Type description...',
+    ]
 ];

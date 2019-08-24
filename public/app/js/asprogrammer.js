@@ -9,8 +9,8 @@ let aspr = (function () {
         modalContent = document.querySelector(props.selectors.modalContent);
         actions = document.querySelectorAll(props.selectors.actions);
         modalWrap = '#' + props.selectors.modalWrap;
-        console.log(modalContent.innerHTML);
-        actions.forEach(function(item, i, actions) {
+        // console.log(modalContent.innerHTML);
+        actions.forEach(function (item, i, actions) {
 
             if (item.id.split('-')[0] === 'show') {
                 item.addEventListener("click", showItem);
@@ -21,8 +21,21 @@ let aspr = (function () {
             }
 
         });
-
+        $('#summernote').summernote();
     }
+
+    // $('#summernote').summernote({
+    //     placeholder: '',
+    //     tabsize: 2,
+    //     height: 400,
+    //     callbacks: {
+    //         onImageUpload: function (files) {
+    //             console.log(files);
+    //             // upload image to server and create imgNode...
+    //             $summernote.summernote('insertNode', imgNode);
+    //         }
+    //     }
+    // });
 
     let deleteItem = function (e) {
         console.log('delete');
@@ -42,7 +55,7 @@ let aspr = (function () {
         $.ajax({
             url: url,
             success: function (data) {
-                modalContent.innerHTML = data;
+                //modalContent.innerHTML = data;
                 console.log(data)
             }
         });

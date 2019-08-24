@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('app/js/app.js') }}" defer></script>
+    {{--<script src="{{ asset('app/js/app.js') }}" defer></script>--}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -166,7 +166,9 @@
     </div>
 </div>
 
+<script src="{{ asset('app/js/app.js') }}"></script>
 <script src="{{ asset('app/js/asprogrammer.js') }}"></script>
+
 @yield('script')
 
 </body>

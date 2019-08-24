@@ -14,9 +14,13 @@ const mix = require('laravel-mix');
 // mix.js('resources/js/app.js', 'public/js')
 //     .sass('resources/sass/app.scss', 'public/css');
 
+mix.webpackConfig({
+    resolve: {
+        alias: {
+            jquery: "jquery/src/jquery"
+        }
+    }
+});
+
 mix.js('resources/app/js/app.js', 'public/app/js')
     .sass('resources/app/sass/app.scss', 'public/app/css');
-
-mix.autoload({
-    'jquery': ['jQuery', '$'],
-});
