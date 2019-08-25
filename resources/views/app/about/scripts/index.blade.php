@@ -3,14 +3,17 @@
 <script type="text/javascript">
 
     aspr.init({
-        selectors: {
+
+        mode: 'index',
+        selector: {
             modalContent: '.modal-content',
-            modalWrap: 'myModal',
+            modalWrap: '#myModal',
             actions: 'a.btn',
         },
-        urls: {
+        url: {
+            urlCreate: '/create/10'
+        }
 
-        },
     });
 
     {{--cv.init({--}}

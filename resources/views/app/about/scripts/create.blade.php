@@ -3,12 +3,12 @@
 <script type="text/javascript">
 
     aspr.init({
-        selectors: {
+        mode: 'create',
+        selector: {
             summernote: '#summernote'
         },
-        urls: {
+        urls: {},
 
-        },
     });
     //$('#summernote').summernote()
     {{--$('#summernote').summernote({--}}

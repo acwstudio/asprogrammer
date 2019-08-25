@@ -4,12 +4,49 @@ let aspr = (function () {
     let modalWrap = {};
     let actions = {};
 
-    function aspInit(props) {
+    let props = {};
 
-        modalContent = document.querySelector(props.selectors.modalContent);
-        actions = document.querySelectorAll(props.selectors.actions);
-        modalWrap = '#' + props.selectors.modalWrap;
-        // console.log(modalContent.innerHTML);
+    function aspInit(params) {
+
+        getProperties(params);
+        console.log(props);
+
+        if (props.mode === 'index') {
+            indexMode();
+        }
+
+        if (props.mode === 'create') {
+            createMode();
+        }
+
+    }
+
+    let getProperties = function(items) {
+
+        let stack = '';
+        getProp(items, stack);
+
+        function getProp(o, stack) {
+            for (let [key, value] of Object.entries(o)) {
+                if (typeof value === 'object') {
+                    getProp(value, stack = key);
+                } else {
+                    if (stack) {
+                        props[stack.substring(0, 3) + key.charAt(0).toUpperCase() + key.slice(1)] = value;
+                    } else {
+                        props[key] = value;
+                    }
+                }
+            }
+        }
+    };
+
+    let indexMode = function() {
+
+        modalContent = document.querySelector(props.selModalContent);
+        actions = document.querySelectorAll(props.selActions);
+        modalWrap = props.selModalWrap;
+
         actions.forEach(function (item, i, actions) {
 
             if (item.id.split('-')[0] === 'show') {
@@ -21,21 +58,24 @@ let aspr = (function () {
             }
 
         });
-        $('#summernote').summernote();
-    }
 
-    // $('#summernote').summernote({
-    //     placeholder: '',
-    //     tabsize: 2,
-    //     height: 400,
-    //     callbacks: {
-    //         onImageUpload: function (files) {
-    //             console.log(files);
-    //             // upload image to server and create imgNode...
-    //             $summernote.summernote('insertNode', imgNode);
-    //         }
-    //     }
-    // });
+    };
+
+    let createMode = function() {
+
+        $('#summernote').summernote({
+            placeholder: 'Oops....',
+            tabsize: 2,
+            height: 400,
+            callbacks: {
+                onImageUpload: function (files) {
+                    console.log(files);
+                    // upload image to server and create imgNode...
+                    $summernote.summernote('insertNode', imgNode);
+                }
+            }
+        });
+    };
 
     let deleteItem = function (e) {
         console.log('delete');
@@ -55,7 +95,7 @@ let aspr = (function () {
         $.ajax({
             url: url,
             success: function (data) {
-                //modalContent.innerHTML = data;
+                modalContent.innerHTML = data;
                 console.log(data)
             }
         });
