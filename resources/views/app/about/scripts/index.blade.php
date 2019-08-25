@@ -10,9 +10,6 @@
             modalWrap: '#myModal',
             actions: 'a.btn',
         },
-        url: {
-            urlCreate: '/create/10'
-        }
 
     });
 

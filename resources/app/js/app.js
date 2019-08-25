@@ -7,6 +7,7 @@
 require('./bootstrap');
 require('summernote/dist/summernote-bs4.css');
 require('summernote/dist/summernote-bs4.js');
+require('sweetalert/dist/sweetalert.min');
 
 // window.Vue = require('vue');
 

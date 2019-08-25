@@ -1,5 +1,11 @@
 let aspr = (function () {
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     let modalContent = {};
     let modalWrap = {};
     let actions = {};
@@ -78,9 +84,53 @@ let aspr = (function () {
     };
 
     let deleteItem = function (e) {
-        console.log('delete');
+
         e.preventDefault();
         e.stopPropagation();
+
+        let url = e.currentTarget.href;
+
+        swal({
+            title: 'Dangerous action!!!',
+            text: 'The Item will be permanently deleted',
+            icon: "warning",
+            dangerMode: true,
+            buttons: [
+                'Cancel',
+                'OK',
+            ],
+        }).then(function (result) {
+            if (result) {
+                $.ajax({
+                    url: url,
+                    type: "delete",
+                    success: function (data) {
+                        if (data) {
+                            swal({
+                                title: 'That is that!',
+                                text: 'The Item has been deleted',
+                                icon: 'success'
+                            }).then(function () {
+                                location.reload();
+                            });
+
+                        } else {
+                            swal({
+                                title: 'O-Ops!!!',
+                                text: 'Something went wrong',
+                                icon: 'warning'
+                            })
+                        }
+                    },
+                });
+            } else {
+                swal({
+                    title: 'Action canceled!',
+                    text: 'The Item is OK',
+                    icon: 'info',
+                })
+            }
+        });
     };
 
     let showItem = function (e) {
@@ -99,65 +149,6 @@ let aspr = (function () {
                 console.log(data)
             }
         });
-    };
-
-    let clickAction = function (e) {
-
-            e.preventDefault();
-            e.stopPropagation();
-        //     let parse_id = e.currentTarget.id.split('-');
-        //     let btn_act = parse_id[0];
-        //     let url = e.currentTarget.href;
-        //
-        //     if (btn_act === "delete") {
-        //         e.preventDefault();
-        //         e.stopPropagation();
-                // swal({
-                //     title: sw.titleConfirm,
-                //     text: sw.textConfirm,
-                //     icon: "warning",
-                //     dangerMode: true,
-                //     buttons: [
-                //         sw.cancel,
-                //         sw.ok,
-                //     ],
-                // }).then(function (result) {
-                //     if (result) {
-                //         $.ajax({
-                //             url: url,
-                //             type: "delete",
-                //             success: function (data) {
-                //                 if (data) {
-                //                     swal({
-                //                         title: sw.titleDeleted,
-                //                         text: sw.textDeleted,
-                //                         icon: 'success'
-                //                     }).then(function () {
-                //                         location.reload();
-                //                     });
-                //
-                //                 } else {
-                //                     swal({
-                //                         title: sw.titleDenied,
-                //                         text: sw.textDenied,
-                //                         icon: 'warning'
-                //                     })
-                //                 }
-                //             },
-                //         });
-                //     } else {
-                //         swal({
-                //             title: sw.titleCanceled,
-                //             text: sw.textCanceled,
-                //             icon: 'info',
-                //         })
-                //     }
-                // });
-
-        //     }
-
-        // });
-
     };
 
     return {
