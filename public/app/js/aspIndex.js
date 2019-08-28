@@ -1,53 +1,12 @@
-let aspr = (function () {
+let aspIndex = (function () {
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+    function init(props) {
 
-    let modalContent = {};
-    let modalWrap = {};
-    let actions = {};
-
-    let props = {};
-
-    function aspInit(params) {
-
-        getProperties(params);
-        console.log(props);
-
-        if (props.mode === 'index') {
-            indexMode();
-        }
-
-        if (props.mode === 'create') {
-            createMode();
-        }
+        listItems(props);
 
     }
 
-    let getProperties = function(items) {
-
-        let stack = '';
-        getProp(items, stack);
-
-        function getProp(o, stack) {
-            for (let [key, value] of Object.entries(o)) {
-                if (typeof value === 'object') {
-                    getProp(value, stack = key);
-                } else {
-                    if (stack) {
-                        props[stack.substring(0, 3) + key.charAt(0).toUpperCase() + key.slice(1)] = value;
-                    } else {
-                        props[key] = value;
-                    }
-                }
-            }
-        }
-    };
-
-    let indexMode = function() {
+    let listItems = function(props) {
 
         modalContent = document.querySelector(props.selModalContent);
         actions = document.querySelectorAll(props.selActions);
@@ -67,18 +26,19 @@ let aspr = (function () {
 
     };
 
-    let createMode = function() {
+    let showItem = function (e) {
 
-        $('#summernote').summernote({
-            placeholder: 'Oops....',
-            tabsize: 2,
-            height: 400,
-            callbacks: {
-                onImageUpload: function (files) {
-                    console.log(files);
-                    // upload image to server and create imgNode...
-                    $summernote.summernote('insertNode', imgNode);
-                }
+        e.preventDefault();
+        e.stopPropagation();
+
+        let url = e.currentTarget.href;
+
+        $(modalWrap).modal('show');
+
+        $.ajax({
+            url: url,
+            success: function (data) {
+                modalContent.innerHTML = data;
             }
         });
     };
@@ -133,26 +93,10 @@ let aspr = (function () {
         });
     };
 
-    let showItem = function (e) {
-        console.log('show');
-        e.preventDefault();
-        e.stopPropagation();
-
-        let url = e.currentTarget.href;
-
-        $(modalWrap).modal('show');
-
-        $.ajax({
-            url: url,
-            success: function (data) {
-                modalContent.innerHTML = data;
-                console.log(data)
-            }
-        });
-    };
-
     return {
-        init: aspInit,
+
+        init: init,
+
     }
 
 })();

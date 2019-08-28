@@ -27,6 +27,14 @@
                                         @enderror
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label>{{ __('forms.fields.image') }} *</label>
+                                        <div id="dropzone" class="dropzone dz-clickable dropzone-file-area"></div>
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <div class="form-group col-md-12">
                                         <label for="form_text">{{ __('forms.fields.text') }} *</label>
@@ -39,6 +47,19 @@
                                               role="alert"><strong>{{ $message }}</strong></span>
                                         @enderror
                                     </div>
+                                </div>
+
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+
+                                    <input id="form_active" type="checkbox" name="active" class="custom-control-input">
+                                    <label class="custom-control-label mr-lg-3"
+                                           for="form_active">{{ __('forms.fields.active') }}
+                                    </label>
+
+                                    <button type="submit"
+                                            class="btn btn-primary float-right">{{ __('forms.buttons.create') }}
+                                    </button>
+
                                 </div>
                             </form>
                         </div>

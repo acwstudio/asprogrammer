@@ -2,34 +2,22 @@
 
 <script type="text/javascript">
 
-    aspr.init({
+    asp.init({
 
         mode: 'index',
         selector: {
             modalContent: '.modal-content',
             modalWrap: '#myModal',
             actions: 'a.btn',
+            checkers: 'td .custom-control-input',
         },
 
     });
 
     {{--cv.init({--}}
-        {{--datatable: {--}}
-            {{--translations: JSON.parse('{!! $transDataTable !!}'),--}}
-        {{--},--}}
-
-        {{--swal: {--}}
-            {{--translations: JSON.parse('{!! $transSwal !!}'),--}}
-        {{--},--}}
 
         {{--elems: {--}}
-            {{--/* DataTable elements */--}}
-            {{--table: $('#dataTable'),--}}
             {{--checkers: $('td .custom-control-input'),--}}
-            {{--buttons: $('td .btn'),--}}
-            {{--/* Modal elements */--}}
-            {{--modal_wrap: $('#myModal'),--}}
-            {{--modal_cont: modalContent,--}}
         {{--},--}}
 
         {{--sets: {--}}
@@ -40,13 +28,5 @@
             {{--urlActive: "{{ route('activator') }}",--}}
         {{--},--}}
     {{--});--}}
-
-    {{--@if(session()->has('sw-title'))--}}
-    {{--swal({--}}
-        {{--title: '{{ session()->get('sw-title') }}',--}}
-        {{--text: '{{ session()->get('sw-text') }}',--}}
-        {{--icon: 'success',--}}
-    {{--});--}}
-    {{--@endif--}}
 
 </script>

@@ -1,0 +1,8 @@
+/* dropzone style */
+.dropzone-file-area {
+    border: 2px dashed #028AF4;
+    background: #fff;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+}

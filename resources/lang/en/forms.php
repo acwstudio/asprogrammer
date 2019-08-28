@@ -32,5 +32,11 @@ return [
         'title' => 'Type title...',
         'text' => 'Write something awesome...',
         'description' => 'Type description...',
-    ]
+    ],
+
+    'buttons' => [
+        'create' => 'Create Item',
+        'update' => 'Update Item',
+        'close' => 'Close',
+    ],
 ];

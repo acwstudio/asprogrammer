@@ -2,31 +2,34 @@
 
 <script type="text/javascript">
 
-    aspr.init({
+    asp.init({
         mode: 'create',
+        urlImgStore: '{{ route('img-store') }}',
+        urlImgDelete: '{{ route('img-delete') }}',
+
         selector: {
-            summernote: '#summernote'
+            summernote: '#summernote',
+            dropzones: '.dropzone',
         },
-        urls: {},
+        dropzone: {
 
-    });
-    //$('#summernote').summernote()
-    {{--$('#summernote').summernote({--}}
-        {{--placeholder: '{{ __('forms.ph.text') }}',--}}
-        {{--tabsize: 2,--}}
-        {{--height: 400,--}}
-        {{--callbacks: {--}}
-            {{--onImageUpload: function(files) {--}}
-                {{--console.log(files);--}}
-                {{--// upload image to server and create imgNode...--}}
-                {{--$summernote.summernote('insertNode', imgNode);--}}
-            {{--}--}}
-        {{--}--}}
-    {{--});--}}
+            {{--urlStore: '{{ route('dz-store') }}',--}}
+            {{--urlDelete: '{{ route('dz-delete') }}',--}}
+            image: 'about',
 
-    {{--$('#summernote').on('summernote.image.upload', function(we, files) {--}}
-        {{--// upload image to server and create imgNode...--}}
-        {{--$summernote.summernote('insertNode', imgNode);--}}
-    {{--});--}}
+            autoPQ: true,
+            maxFiles: 1,
+            maxFilesize: 1,
+            acceptedFiles: 'image/*',
+            thmbn_h: 150,
+            thmbn_w: 450,
+
+        },
+        summernote: {
+            {{--urlStore: '{{ route('smn-store') }}',--}}
+            {{--urlDelete: '{{ route('smn-delete') }}',--}}
+            image: 'summernote',
+        }
+    })
 
 </script>

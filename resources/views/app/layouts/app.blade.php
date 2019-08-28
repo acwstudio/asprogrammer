@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('app/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('app/css/custom.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -167,7 +168,10 @@
 </div>
 
 <script src="{{ asset('app/js/app.js') }}"></script>
-<script src="{{ asset('app/js/asprogrammer.js') }}"></script>
+
+<script src="{{ asset('app/js/aspIndex.js') }}"></script>
+<script src="{{ asset('app/js/aspCreate.js') }}"></script>
+<script src="{{ asset('app/js/asp.js') }}"></script>
 
 @yield('script')
 

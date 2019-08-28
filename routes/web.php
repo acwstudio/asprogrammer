@@ -27,7 +27,13 @@ Route::namespace('Admin')->middleware('auth')->group(function () {
     Route::resource('intros', 'IntroController');
 
 //    Route::post('activator',  ['as' => 'activator', 'uses' => 'AjaxController@activator']);
-//    Route::post('dropzone-store', ['as' => 'dropzone-store', 'uses' => 'DropzoneController@store']);
-//    Route::post('dropzone-delete', ['as' => 'dropzone-delete', 'uses' => 'DropzoneController@delete']);
+
+    Route::post('image-store', ['as' => 'img-store', 'uses' => 'ImageUploadController@store']);
+    Route::post('image-delete', ['as' => 'img-delete', 'uses' => 'ImageUploadController@delete']);
+
+//    Route::post('dropzone-store', ['as' => 'dz-store', 'uses' => 'ImageUploadController@dropzoneStore']);
+//    Route::post('dropzone-delete', ['as' => 'dz-delete', 'uses' => 'ImageUploadController@dropzoneDelete']);
+//    Route::post('summernote-store', ['as' => 'smn-store', 'uses' => 'ImageUploadController@summernoteStore']);
+//    Route::post('summernote-delete', ['as' => 'smn-delete', 'uses' => 'ImageUploadController@summernoteDelete']);
 
 });

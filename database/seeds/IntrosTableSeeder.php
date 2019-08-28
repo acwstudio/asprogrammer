@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
  */
 class IntrosTableSeeder extends Seeder
 {
+    use \App\Traits\ManageImages;
+
     /**
      * Run the database seeds.
      *
@@ -14,6 +16,8 @@ class IntrosTableSeeder extends Seeder
      */
     public function run()
     {
+        $this->setItemsFromConfig('preset');
+
         $fakerRU = Faker\Factory::create('ru_RU');
         $fakerEN = Faker\Factory::create('en_GB');
 
