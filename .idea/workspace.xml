@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37a54cc5-ca6c-4ddf-ad4a-0b1484d1ec04" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/asprogrammer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/asprogrammer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/AboutsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AboutsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/IntrosTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/IntrosTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/WorksTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/WorksTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/app/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/app/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/app/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/app/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/app/js/asprogrammer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/app/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/app/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/app/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/app/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/app/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/app/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/forms.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/app/about/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app/about/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/app/about/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app/about/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/app/about/scripts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app/about/scripts/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/app/about/scripts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app/about/scripts/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/app/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/app/about/scripts/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="50" lean-forward="true" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+            <state relative-caret-position="748">
+              <caret line="34" column="6" lean-forward="true" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -79,7 +55,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageUploadController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ImageUploadController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ImageUploadController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="279">
@@ -172,11 +148,11 @@
         <option value="$PROJECT_DIR$/app/Traits/ManageImages.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/config/asp-images.php" />
-        <option value="$PROJECT_DIR$/resources/views/app/about/scripts/create.blade.php" />
         <option value="$PROJECT_DIR$/public/app/js/aspCreate.js" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Services/ImageUploadService.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ImageUploadController.php" />
+        <option value="$PROJECT_DIR$/resources/views/app/about/scripts/create.blade.php" />
       </list>
     </option>
   </component>
@@ -598,16 +574,15 @@
       <workItem from="1566800770767" duration="10780000" />
       <workItem from="1566836343667" duration="16988000" />
       <workItem from="1566894527521" duration="15061000" />
-      <workItem from="1566922139914" duration="15351000" />
+      <workItem from="1566922139914" duration="16315000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260165000" />
+    <option name="totallyTimeSpent" value="261129000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32900432" />
@@ -895,13 +870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/DropzoneService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="41" column="7" lean-forward="true" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/app/about/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
@@ -975,13 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/app/about/scripts/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="50" lean-forward="true" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Traits/ManageImages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="521">
@@ -1027,6 +988,20 @@
           <folding>
             <element signature="e#46#82#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/DropzoneService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="41" column="7" lean-forward="true" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/app/about/scripts/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="34" column="6" lean-forward="true" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
         </state>
       </provider>
     </entry>
