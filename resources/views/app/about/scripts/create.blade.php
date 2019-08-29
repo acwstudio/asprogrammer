@@ -10,6 +10,7 @@
         selector: {
             summernote: '#summernote',
             dropzones: '.dropzone',
+            imgTempName: '#img_name',
         },
         dropzone: {
 
@@ -29,6 +30,9 @@
             {{--urlStore: '{{ route('smn-store') }}',--}}
             {{--urlDelete: '{{ route('smn-delete') }}',--}}
             image: 'summernote',
+            placeholder: '{{ __('forms.ph.text') }}',
+            tabsize: 2,
+            height: 200,
         }
     })
 

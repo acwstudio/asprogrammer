@@ -26,7 +26,7 @@ Route::namespace('Admin')->middleware('auth')->group(function () {
     Route::resource('headers', 'HeaderController');
     Route::resource('intros', 'IntroController');
 
-//    Route::post('activator',  ['as' => 'activator', 'uses' => 'AjaxController@activator']);
+    Route::post('activator',  ['as' => 'activator', 'uses' => 'ActivatorController@activate']);
 
     Route::post('image-store', ['as' => 'img-store', 'uses' => 'ImageUploadController@store']);
     Route::post('image-delete', ['as' => 'img-delete', 'uses' => 'ImageUploadController@delete']);

@@ -52,5 +52,10 @@ class RepoServiceProvider extends ServiceProvider
             'App\Repositories\Contracts\WorkInterface',
             'App\Repositories\DB_MySQL\WorkRepository'
         );
+
+        $this->app->bind(
+            'App\Repositories\Contracts\ActivatorInterface',
+            'App\Repositories\DB_MySQL\ActivatorRepository'
+        );
     }
 }

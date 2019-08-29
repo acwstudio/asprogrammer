@@ -30,7 +30,8 @@ class SiteService
     public function srvIndex()
     {
         $site = $this->srvSite->getAll($relations = ['about', 'work', 'intro', 'header'])->first();
-
+        $site->about->image = $site->about->img_name . '.' . $site->about->img_extension;
+        //dd($site);
         return view('dim.dimension', compact('site'))->render();
     }
 }

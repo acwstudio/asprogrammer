@@ -5,6 +5,10 @@
     asp.init({
 
         mode: 'index',
+        model: 'about',
+        htmlModalContent: $('.modal-content').html(),
+        urlActive: "{{ route('activator') }}",
+
         selector: {
             modalContent: '.modal-content',
             modalWrap: '#myModal',
@@ -16,16 +20,10 @@
 
     {{--cv.init({--}}
 
-        {{--elems: {--}}
-            {{--checkers: $('td .custom-control-input'),--}}
-        {{--},--}}
-
         {{--sets: {--}}
-            {{--modal_default: modalContent.html(),--}}
             {{--model: "user",--}}
             {{--/* Ajaxes settings*/--}}
             {{--typeActive: 'post',--}}
-            {{--urlActive: "{{ route('activator') }}",--}}
         {{--},--}}
     {{--});--}}
 

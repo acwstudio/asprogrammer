@@ -12,6 +12,7 @@ let aspCreate = (function () {
         console.log(props);
         dropzones = $(props.selDropzones);
 
+
         initDropzone(props);
 
         initSummernote(props);
@@ -21,9 +22,9 @@ let aspCreate = (function () {
     let initSummernote = function (props) {
 
         $(props.selSummernote).summernote({
-            placeholder: 'Write something awesome...',
-            tabsize: 2,
-            height: 400,
+            placeholder: props.sumPlaceholder,
+            tabsize: props.sumTabsize,
+            height: props.sumHeight,
             callbacks: {
                 onImageUpload: function(file) {
                     sendFile(file);
@@ -180,6 +181,7 @@ let aspCreate = (function () {
             element.dropzone.on("success", function (file, response) {
                 console.log(response);
                 $('#' + file_id).data('fileName', response.nameImage);
+                $(props.selImgTempName).val(response.nameImage);
 
             });
 

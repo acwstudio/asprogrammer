@@ -14,6 +14,8 @@
 
                                 @csrf
 
+                                <input id="img_name" name="img-name" type="hidden">
+
                                 <div class="row">
                                     <div class="form-group col-lg-12">
                                         <label for="form_title">{{ __('forms.fields.title') }} *</label>
@@ -30,22 +32,36 @@
 
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <label>{{ __('forms.fields.image') }} *</label>
-                                        <div id="dropzone" class="dropzone dz-clickable dropzone-file-area"></div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="form-group col-md-12">
                                         <label for="form_text">{{ __('forms.fields.text') }} *</label>
                                         <textarea id="summernote"
-                                                  class="form-control @error('body') is-invalid @enderror" name="text"
+                                                  class="form-control @error('text') is-invalid @enderror" name="text"
                                                   placeholder="{{ __('forms.ph-post.text') }}">{{ old('text') }}</textarea>
 
                                         @error('text')
                                         <span class="invalid-feedback"
                                               role="alert"><strong>{{ $message }}</strong></span>
                                         @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-lg-12">
+                                        <label for="form_description">{{ __('forms.fields.description') }} *</label>
+                                        <input id="form_description" type="text" name="description" value="{{ old('description') }}"
+                                               class="form-control @error('description') is-invalid @enderror"
+                                               placeholder="{{ __('forms.ph.description') }} *">
+
+                                        @error('description')
+                                        <span class="invalid-feedback"
+                                              role="alert"><strong>{{ $message }}</strong></span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label>{{ __('forms.fields.image') }} *</label>
+                                        <div id="dropzone" class="dropzone dz-clickable dropzone-file-area"></div>
                                     </div>
                                 </div>
 

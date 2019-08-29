@@ -1,7 +1,7 @@
 <!-- Header -->
 <header id="header">
     <div class="logo">
-        <span class="icon {{ $site->header->icon }}"></span>
+        <a href="{{ route('home') }}"><span class="icon {{ $site->header->icon }}"></span></a>
         {{--<span class="fab fa-laravel fa-2x"></span>--}}
     </div>
     <div class="content">

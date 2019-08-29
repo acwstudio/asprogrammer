@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\AboutCreateRequest;
+use App\Http\Requests\AboutUpdateRequest;
 use App\Services\AboutService;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 /**
@@ -50,12 +51,14 @@ class AboutController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param AboutCreateRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(AboutCreateRequest $request)
     {
-        //
+        $this->about->srvStore($request->all());
+
+        return redirect()->route('abouts.index');
     }
 
     /**
@@ -84,11 +87,11 @@ class AboutController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param AboutUpdateRequest $request
+     * @param  int $id
+     * @return void
      */
-    public function update(Request $request, $id)
+    public function update(AboutUpdateRequest $request, $id)
     {
         //
     }

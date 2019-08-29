@@ -1,16 +1,19 @@
 let aspIndex = (function () {
 
+    let _props = {};
+
     function init(props) {
 
-        listItems(props);
+        _props = props;
+        listItems();
 
     }
 
-    let listItems = function(props) {
+    let listItems = function() {
 
-        modalContent = document.querySelector(props.selModalContent);
-        actions = document.querySelectorAll(props.selActions);
-        modalWrap = props.selModalWrap;
+        modalContent = document.querySelector(_props.selModalContent);
+        actions = document.querySelectorAll(_props.selActions);
+        modalWrap = _props.selModalWrap;
 
         actions.forEach(function (item, i, actions) {
 
@@ -24,6 +27,31 @@ let aspIndex = (function () {
 
         });
 
+        $(_props.selCheckers).on("click", activeItem);
+
+    };
+
+    let activeItem = function (e) {
+
+        let checkboxId = e.currentTarget.id;
+        let valueId = e.currentTarget.value;
+        let fieldName = _props.model + '_id';
+        //console.log(modelId);
+        $(".custom-control-input").prop('checked', false);
+        $('#' + checkboxId).prop('checked', true);
+
+        $.ajax({
+            url: _props.urlActive,
+            method: "post",
+            data: {
+                fieldName: fieldName,
+                valueId: valueId,
+            },
+            success: function (response) {
+                console.log(response);
+            }
+        });
+
     };
 
     let showItem = function (e) {
@@ -32,6 +60,10 @@ let aspIndex = (function () {
         e.stopPropagation();
 
         let url = e.currentTarget.href;
+
+        $(modalWrap).on('hidden.bs.modal', function (e) {
+            modalContent.innerHTML = _props.htmlModalContent;
+        });
 
         $(modalWrap).modal('show');
 
