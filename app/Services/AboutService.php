@@ -45,7 +45,6 @@ class AboutService
         foreach($abouts as $about){
 
             $about->image = $pathImg . $about->img_name . '.' . $about->img_extension;
-//            $about->text = Str::limit($about->text, 150, '...');
             $about->text = $about->text ? 'Text exists, but it is very long...' : 'No translated';
             $about->active = $about->site ? 1 : 0;
 
@@ -196,11 +195,35 @@ class AboutService
      */
     public function srvDestroy(int $id)
     {
+        $pathImgDz = public_path('/') . $this->about['path'];
+        $pathImgSn = public_path('/') . $this->summernote['path'];
         $about = $this->srvAbout->getById($id);
 
         if ($about->site) {
+
             return 0;
+
         } else {
+
+            $text = $about->text;
+            preg_match_all('/(img|src)=("|\')[^"\'>]+/i', $text, $out);
+            $images = [];
+            foreach($out[0] as $image){
+                $pos = strpos($image, 'summernote-');
+                $name = substr($image, $pos);
+                array_push($images, $name);
+            }
+
+            foreach ($images as $image) {
+                if (File::exists($pathImgSn . $image)){
+                    File::delete($pathImgSn . $image);
+                }
+            }
+
+            $fileDz = File::exists($pathImgDz . $about->img_name . '.' . $about->img_extension);
+            if ($fileDz) {
+                File::delete($pathImgDz . $about->img_name . '.' . $about->img_extension);
+            }
             return $this->srvAbout->destroy($id);
         }
 
