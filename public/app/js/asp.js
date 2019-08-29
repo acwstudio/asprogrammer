@@ -15,6 +15,10 @@ let asp = (function () {
                 aspCreate.init(props);
                 break;
 
+            case 'edit':
+                aspCreate.init(props);
+                break;
+
             default:
                 console.log("Sorry, we are out of.");
         }

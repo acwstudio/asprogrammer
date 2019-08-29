@@ -76,12 +76,13 @@ class AboutController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Throwable
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        //
+        return $this->about->srvEdit($id);
     }
 
     /**
@@ -89,11 +90,13 @@ class AboutController extends Controller
      *
      * @param AboutUpdateRequest $request
      * @param  int $id
-     * @return void
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(AboutUpdateRequest $request, $id)
+    public function update(AboutUpdateRequest $request, int $id)
     {
-        //
+        $this->about->srvUpdate($request->all(), $id);
+
+        return redirect()->route('abouts.index');
     }
 
     /**

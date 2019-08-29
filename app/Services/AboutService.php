@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\Contracts\AboutInterface;
+use App\Repositories\Contracts\SiteInterface;
 use App\Traits\ManageImages;
 use File;
 use Illuminate\Support\Str;
@@ -17,15 +18,17 @@ class AboutService
     use ManageImages;
 
     protected $srvAbout;
+    protected $srvSite;
 
     /**
      * AboutService constructor.
      *
      * @param AboutInterface $about
      */
-    public function __construct(AboutInterface $about)
+    public function __construct(AboutInterface $about, SiteInterface $site)
     {
         $this->srvAbout = $about;
+        $this->srvSite = $site;
         $this->setItemsFromConfig('preset');
     }
 
@@ -83,6 +86,14 @@ class AboutService
 
         $newAbout = $this->srvAbout->store($about);
 
+        if ($about['active']) {
+
+            $site_id = $this->srvSite->getAll()->first()->id;
+            $siteData = ['about_id' => $newAbout->id];
+            $this->srvSite->update($site_id, $siteData);
+
+        }
+
         if ($files) {
 
             $extension = File::extension($pathImg . $data['img-name']);
@@ -119,6 +130,69 @@ class AboutService
 
     /**
      * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Throwable
+     */
+    public function srvEdit(int $id)
+    {
+        $about = $this->srvAbout->getById($id);
+        $pathImg = asset('/') . $this->about['path'];
+        $about->image = $pathImg . $about->img_name . '.' . $about->img_extension;
+
+        return view('app.about.edit', compact('about'))->render();
+    }
+
+    /**
+     * @param array $data
+     * @param int $id
+     */
+    public function srvUpdate(array $data, int $id)
+    {
+        $pathImg = public_path('/') . $this->about['path'];
+
+        $files = File::exists($pathImg . $data['img-name']);
+
+        $about = [
+            'alias' => Str::random(10),
+            'img_name' => 'about_',
+            'img_extension' => 'jpg',
+            'active' => isset($data['active']) ? 1 : 0,
+            app()->getLocale() => [
+                'title' => $data['title'],
+                'text' => $data['text'],
+                'description' => $data['description'],
+            ],
+        ];
+
+        $newAbout = $this->srvAbout->update($id, $about);
+
+        if ($about['active']) {
+
+            $site_id = $this->srvSite->getAll()->first()->id;
+            $siteData = ['about_id' => $newAbout->id];
+            $this->srvSite->update($site_id, $siteData);
+
+        }
+
+        if ($files) {
+
+            $extension = File::extension($pathImg . $data['img-name']);
+            $name = File::name($pathImg . $data['img-name']);
+
+            $about['img_name'] = 'about_' . $newAbout->id;
+            $about['img_extension'] = $extension;
+
+            $this->srvAbout->update($newAbout->id, $about);
+
+            $imageAbout = $about['img_name'] . '.' . $about['img_extension'];
+            File::move($pathImg . $name . '.' . $extension, $pathImg . $imageAbout);
+
+        }
+    }
+
+    /**
+     * @param int $id
+     * @return int|mixed
      */
     public function srvDestroy(int $id)
     {

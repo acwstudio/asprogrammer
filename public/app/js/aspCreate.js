@@ -219,23 +219,22 @@ let aspCreate = (function () {
 
             let createMockFile = function (mockFile) {
 
-                for (const [key, value] of Object.entries(sets.pathMockFile)) {
-
-                    if (element.id === key) {
+                // for (const [key, value] of Object.entries(props.pathMockFile)) {
+                //     console.log(value)
+                //     if (element.id === key) {
                         element.dropzone.emit("addedfile", mockFile);
                         element.dropzone.emit("maxfilesreached", mockFile);
-                        element.dropzone.emit("thumbnail", mockFile, value);
+                        element.dropzone.emit("thumbnail", mockFile, props.pathMockFile);
                         element.dropzone.emit("complete", mockFile);
-                    }
-                }
+                //     }
+                // }
 
-                $(".dz-image img").css('height', dz.thmbn_h);
+                $(".dz-image img").css('height', props.droThmbn_h);
 
             };
 
             if (props.mode === 'edit') {
                 let mockFile = {name: "mockfile", size: 12345};
-                // createMockFile(element.dropzone, mockFile);
                 createMockFile(mockFile);
             }
 
