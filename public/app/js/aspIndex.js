@@ -2,6 +2,12 @@ let aspIndex = (function () {
 
     let _props = {};
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     function init(props) {
 
         _props = props;
@@ -36,8 +42,8 @@ let aspIndex = (function () {
         let checkboxId = e.currentTarget.id;
         let valueId = e.currentTarget.value;
         let fieldName = _props.model + '_id';
-        //console.log(modelId);
-        $(".custom-control-input").prop('checked', false);
+
+        $(_props.selCheckers).prop('checked', false);
         $('#' + checkboxId).prop('checked', true);
 
         $.ajax({
@@ -49,6 +55,11 @@ let aspIndex = (function () {
             },
             success: function (response) {
                 console.log(response);
+                swal({
+                    title: 'Activator',
+                    text: 'ID:' + response.activatedId + ' Activated',
+                    icon: 'success'
+                })
             }
         });
 
@@ -97,13 +108,13 @@ let aspIndex = (function () {
                     url: url,
                     type: "delete",
                     success: function (data) {
-                        if (data) {
+                        if (data === 1) {
                             swal({
                                 title: 'That is that!',
                                 text: 'The Item has been deleted',
                                 icon: 'success'
                             }).then(function () {
-                                location.reload();
+                                location.reload(true);
                             });
 
                         } else {

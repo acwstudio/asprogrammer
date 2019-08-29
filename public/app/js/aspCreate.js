@@ -12,7 +12,6 @@ let aspCreate = (function () {
         console.log(props);
         dropzones = $(props.selDropzones);
 
-
         initDropzone(props);
 
         initSummernote(props);
@@ -57,7 +56,6 @@ let aspCreate = (function () {
                 success: function (response) {
                     let imgNode = $('<img>').attr('src', response.path + response.nameImage)[0];
                     $(props.selSummernote).summernote('insertNode', imgNode);
-
                 }
             });
         }

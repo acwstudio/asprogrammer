@@ -116,4 +116,19 @@ class AboutService
 
         return view('app.about.show', compact('about'))->render();
     }
+
+    /**
+     * @param int $id
+     */
+    public function srvDestroy(int $id)
+    {
+        $about = $this->srvAbout->getById($id);
+
+        if ($about->site) {
+            return 0;
+        } else {
+            return $this->srvAbout->destroy($id);
+        }
+
+    }
 }

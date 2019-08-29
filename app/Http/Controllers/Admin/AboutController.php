@@ -104,6 +104,6 @@ class AboutController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->about->srvDestroy($id);
     }
 }

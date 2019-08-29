@@ -27,6 +27,7 @@ class ActivatorService
     /**
      * @param array $data
      * @param int $id
+     * @return mixed
      */
     public function srvActivate(array $data, $id)
     {
@@ -35,6 +36,8 @@ class ActivatorService
         ];
 
         $response = $this->srvActivator->update($id, $activator);
+        $response->activatedId = $response->about_id;
+
         return $response;
     }
 }

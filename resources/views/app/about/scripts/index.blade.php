@@ -13,18 +13,9 @@
             modalContent: '.modal-content',
             modalWrap: '#myModal',
             actions: 'a.btn',
-            checkers: 'td .custom-control-input',
+            checkers: 'td input[type="checkbox"]',
         },
 
     });
-
-    {{--cv.init({--}}
-
-        {{--sets: {--}}
-            {{--model: "user",--}}
-            {{--/* Ajaxes settings*/--}}
-            {{--typeActive: 'post',--}}
-        {{--},--}}
-    {{--});--}}
 
 </script>

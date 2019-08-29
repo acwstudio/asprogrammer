@@ -28,11 +28,10 @@ class ActivatorController extends Controller
     /**
      * @param Request $request
      * @param int $id
+     * @return mixed
      */
     public function activate(Request $request, $id = 1)
     {
-//        $this->activator->srvActivate($request->all(), $id);
-
         return $this->activator->srvActivate($request->all(), $id);
     }
 }

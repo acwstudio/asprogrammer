@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{{ asset('dim/assets/css/main.css') }}" />
+    <link rel="stylesheet" href="{{ asset('dim/assets/css/custom.css') }}" />
     <noscript><link rel="stylesheet" href="{{ asset('dim/assets/css/noscript.css') }}" /></noscript>
 </head>
 <body class="is-preload">
