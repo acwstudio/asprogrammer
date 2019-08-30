@@ -29,7 +29,7 @@ class AboutCreateRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'title' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:16'],
             'text' => ['required'],
             'description' => ['required'],
         ];

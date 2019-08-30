@@ -224,6 +224,7 @@ class AboutService
             if ($fileDz) {
                 File::delete($pathImgDz . $about->img_name . '.' . $about->img_extension);
             }
+
             return $this->srvAbout->destroy($id);
         }
 

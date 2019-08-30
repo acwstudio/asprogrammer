@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\IntroCreateRequest;
+use App\Http\Requests\IntroUpdateRequest;
 use App\Services\IntroService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -39,22 +41,25 @@ class IntroController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return array|string
+     * @throws \Throwable
      */
     public function create()
     {
-        //
+        return $this->intro->srvCreate();
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param IntroCreateRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(IntroCreateRequest $request)
     {
-        //
+        $this->intro->srvStore($request->all());
+
+        return redirect()->route('intros.index');
     }
 
     /**
@@ -72,24 +77,27 @@ class IntroController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @return array|string
+     * @throws \Throwable
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        //
+        return $this->intro->srvEdit($id);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param IntroUpdateRequest $request
+     * @param  int $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(IntroUpdateRequest $request, int $id)
     {
-        //
+        $this->intro->srvUpdate($request->all(), $id);
+
+        return redirect()->route('intros.index');
     }
 
     /**
@@ -98,8 +106,8 @@ class IntroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        return $this->intro->srvDestroy($id);
     }
 }

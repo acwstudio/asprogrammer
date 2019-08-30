@@ -65,6 +65,9 @@
                                 <a class="dropdown-item" href="{{ route('headers.index') }}">
                                     Headers List
                                 </a>
+                                <a class="dropdown-item" href="{{ route('headers.create') }}">
+                                    Header Create
+                                </a>
                             </div>
                         </li>
                         <li class="nav-item dropdown no-arrow mx-1">
@@ -92,6 +95,9 @@
                                 <a class="dropdown-item" href="{{ route('works.index') }}">
                                     Works List
                                 </a>
+                                <a class="dropdown-item" href="{{ route('works.create') }}">
+                                    Work Create
+                                </a>
                             </div>
                         </li>
                         <li class="nav-item dropdown no-arrow mx-1">
@@ -103,6 +109,9 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
                                 <a class="dropdown-item" href="{{ route('intros.index') }}">
                                     Intros List
+                                </a>
+                                <a class="dropdown-item" href="{{ route('intros.create') }}">
+                                    Intro Create
                                 </a>
                             </div>
                         </li>

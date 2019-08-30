@@ -5,11 +5,11 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * Class AboutUpdateRequest
+ * Class WorkUpdateRequest
  *
  * @package App\Http\Requests
  */
-class AboutUpdateRequest extends FormRequest
+class WorkUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

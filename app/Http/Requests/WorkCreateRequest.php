@@ -5,11 +5,11 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * Class AboutUpdateRequest
+ * Class WorkCreateRequest
  *
  * @package App\Http\Requests
  */
-class AboutUpdateRequest extends FormRequest
+class WorkCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,7 +29,7 @@ class AboutUpdateRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'title' => ['required', 'string', 'max:16'],
+            'title' => ['required', 'string', 'max:15'],
             'text' => ['required'],
             'description' => ['required'],
         ];

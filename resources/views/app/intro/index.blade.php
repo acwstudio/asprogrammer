@@ -29,8 +29,11 @@
                                     <td>{{ $intro->text }}</td>
                                     <td>{{ $intro->description }}</td>
                                     <td>
-                                        <input type="checkbox" value="{{ $intro->id }}"
-                                                {{ $intro->active ? 'checked' : '' }}>
+                                        <div class="custom-control  custom-checkbox">
+                                            <input type="checkbox" value="{{ $intro->id }}" class="custom-control-input"
+                                                   id="checkbox-{{ $intro->id }}" {{ $intro->active ? 'checked' : '' }}>
+                                            <label class="custom-control-label" for="checkbox-{{ $intro->id }}"></label>
+                                        </div>
                                     </td>
                                     <td>
                                         <a href="{{ route('intros.show', $intro->id) }}" id="show-{{ $intro->id }}"
