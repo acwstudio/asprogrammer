@@ -29,7 +29,7 @@ class IntroCreateRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'title' => ['required', 'string', 'max:16'],
+            'title' => ['required', 'string', 'max:8'],
             'text' => ['required'],
             'description' => ['required'],
         ];

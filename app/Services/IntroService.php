@@ -115,10 +115,10 @@ class IntroService
      */
     public function srvShow(int $id)
     {
-        $imgPath = asset('/') . config('asprogrammer.paths.article_image');
+        $pathImg = asset('/') . $this->intro['path'];
 
         $intro = $this->srvIntro->getById($id, $relations = ['site']);
-        $intro->image = $imgPath . $intro->img_name . '.' . $intro->img_extension;
+        $intro->image = $pathImg . $intro->img_name . '.' . $intro->img_extension;
         $intro->text = Str::limit($intro->text, 50, '...');
         $intro->active = $intro->site ? 1 : 0;
 

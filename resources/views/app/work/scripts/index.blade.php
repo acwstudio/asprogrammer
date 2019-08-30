@@ -2,51 +2,20 @@
 
 <script type="text/javascript">
 
-    aspr.init({
-        selectors: {
+    asp.init({
+
+        mode: 'index',
+        model: 'work',
+        htmlModalContent: $('.modal-content').html(),
+        urlActive: "{{ route('activator') }}",
+
+        selector: {
             modalContent: '.modal-content',
-            modalWrap: 'myModal',
+            modalWrap: '#myModal',
             actions: 'a.btn',
+            checkers: 'td input[type="checkbox"]',
         },
-        urls: {
 
-        },
     });
-
-    {{--cv.init({--}}
-        {{--datatable: {--}}
-            {{--translations: JSON.parse('{!! $transDataTable !!}'),--}}
-        {{--},--}}
-
-        {{--swal: {--}}
-            {{--translations: JSON.parse('{!! $transSwal !!}'),--}}
-        {{--},--}}
-
-        {{--elems: {--}}
-            {{--/* DataTable elements */--}}
-            {{--table: $('#dataTable'),--}}
-            {{--checkers: $('td .custom-control-input'),--}}
-            {{--buttons: $('td .btn'),--}}
-            {{--/* Modal elements */--}}
-            {{--modal_wrap: $('#myModal'),--}}
-            {{--modal_cont: modalContent,--}}
-        {{--},--}}
-
-        {{--sets: {--}}
-            {{--modal_default: modalContent.html(),--}}
-            {{--model: "user",--}}
-            {{--/* Ajaxes settings*/--}}
-            {{--typeActive: 'post',--}}
-            {{--urlActive: "{{ route('activator') }}",--}}
-        {{--},--}}
-    {{--});--}}
-
-    {{--@if(session()->has('sw-title'))--}}
-    {{--swal({--}}
-        {{--title: '{{ session()->get('sw-title') }}',--}}
-        {{--text: '{{ session()->get('sw-text') }}',--}}
-        {{--icon: 'success',--}}
-    {{--});--}}
-    {{--@endif--}}
 
 </script>

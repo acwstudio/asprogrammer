@@ -68,7 +68,7 @@ class AboutController extends Controller
      * @return array|string
      * @throws \Throwable
      */
-    public function show($id)
+    public function show(int $id)
     {
         return $this->about->srvShow($id);
     }

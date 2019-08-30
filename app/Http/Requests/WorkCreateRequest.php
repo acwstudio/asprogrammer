@@ -29,7 +29,7 @@ class WorkCreateRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'title' => ['required', 'string', 'max:15'],
+            'title' => ['required', 'string', 'max:8'],
             'text' => ['required'],
             'description' => ['required'],
         ];
