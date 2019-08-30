@@ -67,12 +67,8 @@ class IntroService
     {
         $pathImg = public_path('/') . $this->intro['path'];
 
-        $files = File::exists($pathImg . $data['img-name']);
-
         $intro = [
             'alias' => Str::random(10),
-            'img_name' => 'intro_',
-            'img_extension' => 'jpg',
             'active' => isset($data['active']) ? 1 : 0,
             app()->getLocale() => [
                 'title' => $data['title'],
@@ -91,7 +87,7 @@ class IntroService
 
         }
 
-        if ($files) {
+        if ($data['img-name']) {
 
             $extension = File::extension($pathImg . $data['img-name']);
             $name = File::name($pathImg . $data['img-name']);
@@ -133,6 +129,7 @@ class IntroService
     public function srvEdit(int $id)
     {
         $intro = $this->srvIntro->getById($id);
+        $intro->active = $intro->site ? 1 : 0;
         $pathImg = asset('/') . $this->intro['path'];
         $intro->image = $pathImg . $intro->img_name . '.' . $intro->img_extension;
 
@@ -147,12 +144,8 @@ class IntroService
     {
         $pathImg = public_path('/') . $this->intro['path'];
 
-        $files = File::exists($pathImg . $data['img-name']);
-
         $intro = [
             'alias' => Str::random(10),
-            'img_name' => 'intro_',
-            'img_extension' => 'jpg',
             'active' => isset($data['active']) ? 1 : 0,
             app()->getLocale() => [
                 'title' => $data['title'],
@@ -171,7 +164,7 @@ class IntroService
 
         }
 
-        if ($files) {
+        if ($data['img-name']) {
 
             $extension = File::extension($pathImg . $data['img-name']);
             $name = File::name($pathImg . $data['img-name']);

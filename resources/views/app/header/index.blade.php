@@ -29,8 +29,11 @@
                                     <td>{{ $header->text }}</td>
                                     <td>{{ $header->description }}</td>
                                     <td>
-                                        <input type="checkbox" value="{{ $header->id }}"
-                                                {{ $header->active ? 'checked' : '' }}>
+                                        <div class="custom-control  custom-checkbox">
+                                            <input type="checkbox" value="{{ $header->id }}" class="custom-control-input"
+                                                   id="checkbox-{{ $header->id }}" {{ $header->active ? 'checked' : '' }}>
+                                            <label class="custom-control-label" for="checkbox-{{ $header->id }}"></label>
+                                        </div>
                                     </td>
                                     <td>
                                         <a href="{{ route('headers.show', $header->id) }}" id="show-{{ $header->id }}"

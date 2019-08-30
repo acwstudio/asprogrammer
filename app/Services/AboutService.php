@@ -73,8 +73,6 @@ class AboutService
 
         $about = [
             'alias' => Str::random(10),
-            'img_name' => 'about_',
-            'img_extension' => 'jpg',
             'active' => isset($data['active']) ? 1 : 0,
             app()->getLocale() => [
                 'title' => $data['title'],
@@ -93,7 +91,7 @@ class AboutService
 
         }
 
-        if ($files) {
+        if ($data['img-name']) {
 
             $extension = File::extension($pathImg . $data['img-name']);
             $name = File::name($pathImg . $data['img-name']);
@@ -135,6 +133,7 @@ class AboutService
     public function srvEdit(int $id)
     {
         $about = $this->srvAbout->getById($id);
+        $about->active = $about->site ? 1 : 0;
         $pathImg = asset('/') . $this->about['path'];
         $about->image = $pathImg . $about->img_name . '.' . $about->img_extension;
 
@@ -149,12 +148,8 @@ class AboutService
     {
         $pathImg = public_path('/') . $this->about['path'];
 
-        $files = File::exists($pathImg . $data['img-name']);
-
         $about = [
             'alias' => Str::random(10),
-            'img_name' => 'about_',
-            'img_extension' => 'jpg',
             'active' => isset($data['active']) ? 1 : 0,
             app()->getLocale() => [
                 'title' => $data['title'],
@@ -173,7 +168,7 @@ class AboutService
 
         }
 
-        if ($files) {
+        if ($data['img-name']) {
 
             $extension = File::extension($pathImg . $data['img-name']);
             $name = File::name($pathImg . $data['img-name']);

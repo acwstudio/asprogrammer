@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Site extends Model
 {
-    protected $fillable = ['intro_id', 'about_id', 'work_id'];
+    protected $fillable = ['intro_id', 'about_id', 'work_id', 'header_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

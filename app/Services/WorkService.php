@@ -67,12 +67,8 @@ class WorkService
     {
         $pathImg = public_path('/') . $this->work['path'];
 
-        $files = File::exists($pathImg . $data['img-name']);
-
         $work = [
             'alias' => Str::random(10),
-            'img_name' => 'work_',
-            'img_extension' => 'jpg',
             'active' => isset($data['active']) ? 1 : 0,
             app()->getLocale() => [
                 'title' => $data['title'],
@@ -91,7 +87,7 @@ class WorkService
 
         }
 
-        if ($files) {
+        if ($data['img-name']) {
 
             $extension = File::extension($pathImg . $data['img-name']);
             $name = File::name($pathImg . $data['img-name']);
@@ -133,6 +129,7 @@ class WorkService
     public function srvEdit(int $id)
     {
         $work = $this->srvWork->getById($id);
+        $work->active = $work->site ? 1 : 0;
         $pathImg = asset('/') . $this->work['path'];
         $work->image = $pathImg . $work->img_name . '.' . $work->img_extension;
 
@@ -147,12 +144,8 @@ class WorkService
     {
         $pathImg = public_path('/') . $this->work['path'];
 
-        $files = File::exists($pathImg . $data['img-name']);
-
         $work = [
             'alias' => Str::random(10),
-            'img_name' => 'work_',
-            'img_extension' => 'jpg',
             'active' => isset($data['active']) ? 1 : 0,
             app()->getLocale() => [
                 'title' => $data['title'],
@@ -171,7 +164,7 @@ class WorkService
 
         }
 
-        if ($files) {
+        if ($data['img-name']) {
 
             $extension = File::extension($pathImg . $data['img-name']);
             $name = File::name($pathImg . $data['img-name']);

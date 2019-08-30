@@ -68,7 +68,8 @@
 
                                 <div class="custom-control custom-checkbox my-1 mr-sm-2">
 
-                                    <input id="form_active" type="checkbox" name="active" class="custom-control-input">
+                                    <input id="form_active" type="checkbox" name="active" class="custom-control-input"
+                                            {{ $work->active ? 'checked' : '' }}>
                                     <label class="custom-control-label mr-lg-3"
                                            for="form_active">{{ __('forms.fields.active') }}
                                     </label>

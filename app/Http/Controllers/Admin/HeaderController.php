@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\HeaderCreateRequest;
+use App\Http\Requests\HeaderUpdateRequest;
 use App\Services\HeaderService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -39,22 +41,25 @@ class HeaderController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return array|string
+     * @throws \Throwable
      */
     public function create()
     {
-        //
+        return $this->header->srvCreate();
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param HeaderCreateRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HeaderCreateRequest $request)
     {
-        //
+        $this->header->srvStore($request->all());
+
+        return redirect()->route('headers.index');
     }
 
     /**
@@ -72,12 +77,13 @@ class HeaderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @return array|string
+     * @throws \Throwable
      */
     public function edit($id)
     {
-        //
+        return $this->header->srvEdit($id);
     }
 
     /**
@@ -87,9 +93,11 @@ class HeaderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(HeaderUpdateRequest $request, $id)
     {
-        //
+        $this->header->srvUpdate($request->all(), $id);
+
+        return redirect()->route('headers.index');
     }
 
     /**
@@ -100,6 +108,6 @@ class HeaderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->header->srvDestroy($id);
     }
 }

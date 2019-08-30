@@ -166,6 +166,7 @@ let aspCreate = (function () {
             element.dropzone.on("removedfile", function () {
 
                 $(element).css("pointer-events", "auto");
+                $(props.selImgTempName).val('');
 
             });
 

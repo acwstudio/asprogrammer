@@ -45,7 +45,7 @@ let aspIndex = (function () {
 
         $(_props.selCheckers).prop('checked', false);
         $('#' + checkboxId).prop('checked', true);
-
+        console.log(valueId)
         $.ajax({
             url: _props.urlActive,
             method: "post",
@@ -54,10 +54,10 @@ let aspIndex = (function () {
                 valueId: valueId,
             },
             success: function (response) {
-                console.log(response);
+                console.log(response)
                 swal({
                     title: 'Activator',
-                    text: 'ID:' + response.activatedId + ' Activated',
+                    text: 'ID:' + response[fieldName] + ' Activated',
                     icon: 'success'
                 })
             }

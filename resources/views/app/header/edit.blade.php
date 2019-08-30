@@ -6,10 +6,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">About Edit</div>
+                    <div class="card-header">Header Edit</div>
                     <div class="card-body">
                         <div class="card-body">
-                            <form id="update-about" method="post" action="{{ route('abouts.update', $about->id) }}"
+                            <form id="update-header" method="post" action="{{ route('headers.update', $header->id) }}"
                                   role="form" enctype="multipart/form-data" class="col col-lg-12">
 
                                 @csrf
@@ -20,7 +20,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-12">
                                         <label for="form_title">{{ __('forms.fields.title') }} *</label>
-                                        <input id="form_title" type="text" name="title" value="{{ $about->title }}"
+                                        <input id="form_title" type="text" name="title" value="{{ $header->title }}"
                                                class="form-control @error('title') is-invalid @enderror"
                                                placeholder="{{ __('forms.ph.title') }} *">
 
@@ -36,7 +36,7 @@
                                         <label for="form_text">{{ __('forms.fields.text') }} *</label>
                                         <textarea id="summernote"
                                                   class="form-control @error('text') is-invalid @enderror" name="text"
-                                                  placeholder="{{ __('forms.ph-post.text') }}">{{ $about->text }}</textarea>
+                                                  placeholder="{{ __('forms.ph-post.text') }}">{{ $header->text }}</textarea>
 
                                         @error('text')
                                         <span class="invalid-feedback"
@@ -48,7 +48,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-12">
                                         <label for="form_description">{{ __('forms.fields.description') }} *</label>
-                                        <input id="form_description" type="text" name="description" value="{{ $about->description }}"
+                                        <input id="form_description" type="text" name="description" value="{{ $header->description }}"
                                                class="form-control @error('description') is-invalid @enderror"
                                                placeholder="{{ __('forms.ph.description') }} *">
 
@@ -59,17 +59,17 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label>{{ __('forms.fields.image') }} *</label>
-                                        <div id="dropzone" class="dropzone dz-clickable dropzone-file-area"></div>
-                                    </div>
-                                </div>
+                                {{--<div class="row">--}}
+                                    {{--<div class="form-group col-md-12">--}}
+                                        {{--<label>{{ __('forms.fields.image') }} *</label>--}}
+                                        {{--<div id="dropzone" class="dropzone dz-clickable dropzone-file-area"></div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
 
                                 <div class="custom-control custom-checkbox my-1 mr-sm-2">
 
                                     <input id="form_active" type="checkbox" name="active" class="custom-control-input"
-                                            {{ $about->active ? 'checked' : '' }}>
+                                            {{ $header->active ? 'checked' : '' }}>
                                     <label class="custom-control-label mr-lg-3"
                                            for="form_active">{{ __('forms.fields.active') }}
                                     </label>
@@ -89,6 +89,6 @@
 
 @endsection
 
-@section('script')
-    @include('app.about.scripts.edit')
-@endsection
+{{--@section('script')--}}
+    {{--@include('app.header.scripts.edit')--}}
+{{--@endsection--}}

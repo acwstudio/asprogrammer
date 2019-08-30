@@ -29,15 +29,12 @@ class ActivatorService
      * @param int $id
      * @return mixed
      */
-    public function srvActivate(array $data, $id)
+    public function srvActivate(array $data, int $id)
     {
         $activator = [
             $data['fieldName'] => $data['valueId'],
         ];
 
-        $response = $this->srvActivator->update($id, $activator);
-        $response->activatedId = $response->about_id;
-
-        return $response;
+        return $this->srvActivator->update($id, $activator);
     }
 }
