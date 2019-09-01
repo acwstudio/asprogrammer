@@ -69,6 +69,7 @@
                         $('label[for=' + key + ']').css('background-color', 'darkred');
                         elems[key].val('');
                     }
+
                 })
             },
             complete: function (res) {
@@ -79,6 +80,25 @@
 
     };
 
-    $('#submit_btn').on('click', send_mail);
+    let reset_form = function(){
+
+        $('.field input, .field textarea').each(function () {
+
+            if ($(this).attr('placeholder')) {
+                $(this).attr('placeholder', '');
+                $(this).val('');
+            }
+
+            $(this).val('');
+
+        });
+
+        $('div.field label').each(function () {
+            $(this).css('background-color', '');
+        })
+    };
+
+    $('li input[type="submit"]').on('click', send_mail);
+    $('li input[type="button"]').on('click', reset_form);
 
 })(jQuery);

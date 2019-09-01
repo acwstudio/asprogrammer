@@ -28,9 +28,10 @@
             </div>
             </div>
             <ul class="actions">
-                <li><input type="submit" form="contact-email" name="send" id="submit_btn"
-                           value="{{ __('dimension.contact.send') }}" class="special"/></li>
-                <li><input type="reset" value="{{ __('dimension.contact.reset') }}"/></li>
+                <li><input type="submit" form="contact-email" name="send" class="primary"
+                           value="{{ __('dimension.contact.send') }}"/>
+                </li>
+                <li><input type="button" value="{{ __('dimension.contact.reset') }}"/></li>
             </ul>
 
         </form>
