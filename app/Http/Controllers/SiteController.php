@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Services\SiteService;
-use Illuminate\Http\Request;
 
 /**
  * Class SiteController

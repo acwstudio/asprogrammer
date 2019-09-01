@@ -42,5 +42,6 @@
 <script src="{{ asset('dim/assets/js/breakpoints.min.js') }}"></script>
 <script src="{{ asset('dim/assets/js/util.js') }}"></script>
 <script src="{{ asset('dim/assets/js/main.js') }}"></script>
+<script src="{{ asset('dim/assets/js/sendemail.js') }}"></script>
 
 </body>

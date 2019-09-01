@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\Contracts\SiteInterface;
+use Crypt;
 
 /**
  * Class SiteService
@@ -33,6 +34,7 @@ class SiteService
         $site->about->image = $site->about->img_name . '.' . $site->about->img_extension;
         $site->intro->image = $site->intro->img_name . '.' . $site->intro->img_extension;
         $site->work->image = $site->work->img_name . '.' . $site->work->img_extension;
+        $site->lifeCycle = Crypt::encrypt(time());
         //dd($site);
         return view('dim.dimension', compact('site'))->render();
     }
