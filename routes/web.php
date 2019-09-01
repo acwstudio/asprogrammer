@@ -14,7 +14,6 @@
 Route::get('/', 'SiteController@index')->name('site');
 Route::get('lang/{language}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
 
-//Route::get('contact', 'ContactController@create')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('send');
 
 Auth::routes();

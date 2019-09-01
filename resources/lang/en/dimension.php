@@ -11,5 +11,6 @@ return [
         'send' => 'Send Message',
         'reset' => 'Reset',
         'title' => 'Contact',
+        'success' => 'your message has been sent!'
     ],
 ];

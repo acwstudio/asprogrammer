@@ -27,6 +27,6 @@ class ContactController extends Controller
 
         Mail::to("receiver@example.com")->send(new ContactMail($contact));
 
-        return __('panels.forms.success');
+        return __('dimension.contact.success');
     }
 }

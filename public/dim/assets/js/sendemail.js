@@ -28,34 +28,51 @@
             beforeSend: function () {
 
                 elems.submit.prop('disabled', true);
+                $('div.field label').each(function () {
+                    $(this).css('background-color', '');
+                })
 
             },
             success: function (res) {
 
                 elems.message.val(res).css('color', 'green');
+
+                setTimeout(function () {
+
+                    elems.message.val(res).css('color', 'white');
+                    $('.field input, .field textarea').each(function () {
+
+                        if ($(this).attr('placeholder')) {
+                            $(this).attr('placeholder', '');
+                            $(this).val('');
+                        }
+
+                        $(this).val('');
+                    });
+
+                }, 3000);
+
                 elems.submit.prop('disabled', false);
 
             },
             error: function (jqXHR, textStatus) {
 
                 let storeErrors = $.parseJSON(jqXHR.responseText).errors;
-                console.log(storeErrors)
+
                 elems.submit.prop('disabled', false);
 
                 $.each(storeErrors, function (key, value) {
-                    if (elems[key]) {
+
+                    if (elems[key] && value) {
+
                         elems[key].attr('placeholder', value);
+                        $('label[for=' + key + ']').css('background-color', 'darkred');
+                        elems[key].val('');
                     }
                 })
             },
             complete: function (res) {
-
-                setTimeout(function () {
-                    elems.message.val(res).css('color', 'white');
-                    elems.form.each(function () {
-                        this.reset();
-                    });
-                }, 3000);
+                console.log(res)
             }
 
         });
