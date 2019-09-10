@@ -31,7 +31,7 @@ class AboutsTableSeeder extends Seeder
                 'about_id' => $aboutID,
                 'locale' => 'en',
                 'title' => 'About Me',
-                'text' => 'You have to write somrthing awesome here',
+                'text' => 'Unfortunately, this article has not been translated into English.',
                 'description' => 'Test description',
             ]);
 
@@ -39,7 +39,7 @@ class AboutsTableSeeder extends Seeder
                 'about_id' => $aboutID,
                 'locale' => 'ru',
                 'title' => 'Обо мне',
-                'text' => 'Вы должны здесь написать что-то потрясающее',
+                'text' => 'К сожалению, эта статья не переведена на русский язык.',
                 'description' => 'Тестовое описание',
             ]);
 

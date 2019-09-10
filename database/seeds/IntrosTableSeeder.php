@@ -32,7 +32,7 @@ class IntrosTableSeeder extends Seeder
                 'intro_id' => $introID,
                 'locale' => 'en',
                 'title' => 'Intro',
-                'text' => 'You have to write somrthing awesome here',
+                'text' => 'Unfortunately, this article has not been translated into English.',
                 'description' => 'Test description',
             ]);
 
@@ -40,7 +40,7 @@ class IntrosTableSeeder extends Seeder
                 'intro_id' => $introID,
                 'locale' => 'ru',
                 'title' => 'Интро',
-                'text' => 'Вы должны здесь написать что-то потрясающее',
+                'text' => 'К сожалению, эта статья не переведена на русский язык.',
                 'description' => 'Тестовое описание',
             ]);
 

@@ -32,7 +32,7 @@ class WorksTableSeeder extends Seeder
                 'work_id' => $workID,
                 'locale' => 'en',
                 'title' => 'Work',
-                'text' => 'You have to write somrthing awesome here',
+                'text' => 'Unfortunately, this article has not been translated into English.',
                 'description' => 'Test description',
             ]);
 
@@ -40,7 +40,7 @@ class WorksTableSeeder extends Seeder
                 'work_id' => $workID,
                 'locale' => 'ru',
                 'title' => 'Работа',
-                'text' => 'Вы должны здесь написать что-то потрясающее',
+                'text' => 'К сожалению, эта статья не переведена на русский язык.',
                 'description' => 'Тестовое описание',
             ]);
 
