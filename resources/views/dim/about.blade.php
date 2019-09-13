@@ -5,5 +5,5 @@
         <img src="{{ asset('dim/images/abouts') . '/' . $site->about->image }}" alt="" />
     </span>
     <p>{!! $site->about->text !!}</p>
-    <p>{{ $site->about->description }}</p>
+    <p>{!! $site->about->description !!}</p>
 </article>
