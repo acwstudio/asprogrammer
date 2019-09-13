@@ -44,7 +44,7 @@ class AboutService
 
         foreach($abouts as $about){
 
-            $about->image = $pathImg . $about->img_name . '.' . $about->img_extension;
+            $about->image = $pathImg . $about->img_name . '.' . $about->img_extension . '?t=' . time();
             $about->text = $about->text ? 'Text exists, but it is very long...' : 'No translated';
             $about->active = $about->site ? 1 : 0;
 

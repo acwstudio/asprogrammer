@@ -43,7 +43,7 @@ class WorkService
         $pathImg = asset('/') . $this->work['path'];
 
         foreach($works as $work){
-            $work->image = $pathImg . $work->img_name . '.' . $work->img_extension;
+            $work->image = $pathImg . $work->img_name . '.' . $work->img_extension . '?t=' . time();
             $work->text = Str::limit($work->text, 50, '...');
             $work->active = $work->site ? 1 : 0;
         }

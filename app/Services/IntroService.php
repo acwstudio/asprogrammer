@@ -43,7 +43,7 @@ class IntroService
         $pathImg = asset('/') . $this->intro['path'];
 
         foreach($intros as $intro){
-            $intro->image = $pathImg . $intro->img_name . '.' . $intro->img_extension;
+            $intro->image = $pathImg . $intro->img_name . '.' . $intro->img_extension . '?t=' . time();
             $intro->text = Str::limit($intro->text, 50, '...');
             $intro->active = $intro->site ? 1 : 0;
         }
