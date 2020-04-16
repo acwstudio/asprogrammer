@@ -1,0 +1,101 @@
+version: '3'
+services:
+  # App php-fpm service
+  app:
+    build:
+      context: .
+      dockerfile: php-fpm.docker
+    image: asp-app
+    container_name: asp_php_fpm
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www
+    volumes:
+      - ./.bashrc:/root/.bashrc
+      - ./../:/var/www/
+    networks:
+      - asp-network
+
+  #Nginx Service
+  nginx:
+    image: nginx:alpine
+    container_name: asp_nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "${PORT_HTTP}:80"
+      - "${PORT_HTTPS}:443"
+    volumes:
+      - ./../:/var/www
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/ssl/:/etc/ssl/
+    networks:
+      - asp-network
+
+    #MySQL Service
+  db:
+    image: mysql:5.7
+    container_name: asp_db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "${PORT_DATABASE}:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      #MYSQL_USER: ${MYSQL_USER}
+      #MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mysqldata:/var/lib/mysql/
+    networks:
+      - asp-network
+
+  node:
+    image: node:13-alpine
+    container_name: asp_node
+    restart: unless-stopped
+    volumes:
+      - ./../:/var/www
+    working_dir: /var/www
+    tty: true
+#  mailcatcher:
+#    image: schickling/mailcatcher
+#    container_name: ${APP_NAME}_mailcatcher
+#    ports:
+#      - "${PORT_MAILCATCHER}:1080"
+#    networks:
+#      - app-network
+
+#  redis:
+#    container_name: ${APP_NAME}_redis
+#    image: redis
+#    ports:
+#      - "${PORT_REDIS}:6379"
+#    volumes:
+#      - "./data/redis:/data"
+#    restart: always
+#    networks:
+#      - app-network
+
+#  phpmyadmin:
+#    image: phpmyadmin/phpmyadmin
+#    container_name: ${APP_NAME}_phpmyadmin
+#    ports:
+#      - ${PORT_PHPMYADMIN}:80
+#    restart: always
+#    links:
+#      - database:db
+#    depends_on:
+#      - database
+
+#Volumes
+volumes:
+  mysqldata:
+    driver: local
+  laravel:
+    driver: local
+
+# Docker Networks
+networks:
+  asp-network:
+    driver: bridge
