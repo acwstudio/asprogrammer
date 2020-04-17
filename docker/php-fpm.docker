@@ -1,6 +1,6 @@
 
 # PHP Version alpine image to install based on the PHP_VERSION environment variable
-FROM php:7.4-fpm-alpine
+FROM php:7.2-fpm-alpine
 
 # Application environment variable
 #ARG APP_ENV
@@ -34,7 +34,8 @@ RUN apk update && apk add --no-cache $PHPIZE_DEPS \
    freetype-dev \
    libjpeg-turbo-dev \
    libpng-dev && \
-   docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ && \
+   docker-php-ext-configure gd --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ && \
+#   docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ && \
    docker-php-ext-install -j$(getconf _NPROCESSORS_ONLN) gd;
 
 # Install extensions

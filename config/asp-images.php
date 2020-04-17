@@ -33,6 +33,7 @@ return [
         'summernote' => [
             'prefix' => 'summernote-',
             'path' => 'dim/images/summernote/',
+            'temp' => 'dim/images/temp-files/summernote',
             'height' => 0,
             'width' => 0,
             'manipulation' => Spatie\Image\Manipulations::FIT_CONTAIN,

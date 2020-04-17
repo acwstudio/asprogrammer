@@ -37,9 +37,9 @@ trait ManageImages
                 if ( property_exists( $this , $propertyName) ){
                     $this->$propertyName = $propertyValue;
 
-//                    if (!is_dir($this->$propertyName['temp'])){
-//                        File::makeDirectory(public_path('/') . $this->$propertyName['temp'], 0775, true, true);
-//                    }
+                    if (!is_dir($this->$propertyName['temp'])){
+                        File::makeDirectory(public_path('/') . $this->$propertyName['temp'], 0775, true, true);
+                    }
 
                     if (!is_dir($this->$propertyName['path'])){
                         File::makeDirectory(public_path('/') . $this->$propertyName['path'], 0775, true, true);

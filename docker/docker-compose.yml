@@ -13,6 +13,7 @@ services:
     volumes:
       - ./.bashrc:/root/.bashrc
       - ./../:/var/www/
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - asp-network
 
@@ -47,6 +48,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - mysqldata:/var/lib/mysql/
+      - ./backups:/var/backups/
     networks:
       - asp-network
 
