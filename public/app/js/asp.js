@@ -5,7 +5,7 @@ let asp = (function () {
     function init(params) {
 
         getProperties(params);
-        //console.log(props);
+
         switch (props.mode) {
             case 'index':
                 aspIndex.init(props);

@@ -54,9 +54,12 @@ let aspCreate = (function () {
                 contentType: false,
                 processData: false,
                 success: function (response) {
-                    let url = response.path
-                    let uri = '/' + url.replace (/^[a-z]{4,5}\:\/{2}[a-z]{1,}\:[0-9]{1,4}.(.*)/, '$1');
-                    let imgNode = $('<img>').attr('src', uri + response.nameImage)[0];
+                    let url_img = response.path
+                    let curURL = window.location;
+                    let template = curURL.protocol + '//' +  curURL.host;
+                    let uri_img = url_img.replace(template, '')
+                    let imgNode = $('<img>').attr('src', uri_img + response.nameImage)[0];
+                    console.log(uri_img)
                     $(props.selSummernote).summernote('insertNode', imgNode);
                 }
             });
