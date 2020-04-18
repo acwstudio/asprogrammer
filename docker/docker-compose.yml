@@ -48,7 +48,8 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - mysqldata:/var/lib/mysql/
-      - ./backups:/var/backups/
+      - ./../../backups:/var/backups/
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
     networks:
       - asp-network
 
@@ -60,6 +61,7 @@ services:
       - ./../:/var/www
     working_dir: /var/www
     tty: true
+
 #  mailcatcher:
 #    image: schickling/mailcatcher
 #    container_name: ${APP_NAME}_mailcatcher
