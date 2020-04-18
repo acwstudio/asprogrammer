@@ -54,7 +54,9 @@ let aspCreate = (function () {
                 contentType: false,
                 processData: false,
                 success: function (response) {
-                    let imgNode = $('<img>').attr('src', response.path + response.nameImage)[0];
+                    let url = response.path
+                    let uri = '/' + url.replace (/^[a-z]{4,5}\:\/{2}[a-z]{1,}\:[0-9]{1,4}.(.*)/, '$1');
+                    let imgNode = $('<img>').attr('src', uri + response.nameImage)[0];
                     $(props.selSummernote).summernote('insertNode', imgNode);
                 }
             });

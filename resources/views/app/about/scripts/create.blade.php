@@ -1,7 +1,6 @@
 <!-- PAGE LEVEL SCRIPTS -->
 
 <script type="text/javascript">
-
     asp.init({
         mode: 'create',
         urlImgStore: '{{ route('img-store') }}',
