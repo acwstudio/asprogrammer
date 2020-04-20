@@ -1,4 +1,4 @@
-version: '3'
+version: '3.3'
 services:
   # App php-fpm service
   app:
@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: php-fpm.docker
     image: asp-app
-    container_name: asp_php_fpm
+    container_name: asp_php_${APP_ENV}
     restart: unless-stopped
     tty: true
     working_dir: /var/www
@@ -20,7 +20,7 @@ services:
   #Nginx Service
   nginx:
     image: nginx:alpine
-    container_name: asp_nginx
+    container_name: asp_nginx_${APP_ENV}
     restart: unless-stopped
     tty: true
     ports:
@@ -36,7 +36,7 @@ services:
     #MySQL Service
   db:
     image: mysql:5.7
-    container_name: asp_db
+    container_name: asp_db_${APP_ENV}
     restart: unless-stopped
     tty: true
     ports:
@@ -55,7 +55,7 @@ services:
 
   node:
     image: node:13-alpine
-    container_name: asp_node
+    container_name: asp_node_${APP_ENV}
     restart: unless-stopped
     volumes:
       - ./../:/var/www
@@ -96,8 +96,8 @@ services:
 volumes:
   mysqldata:
     driver: local
-  laravel:
-    driver: local
+#  laravel:
+#    driver: local
 
 # Docker Networks
 networks:
