@@ -60,6 +60,12 @@ Open `resources/assets/js/app.js` and remove
  
  `require('summernote/dist/summernote-bs4.js');`
  
+ fix errors npm install
  
+ Перейдите в каталог проекта
+ Удалите каталог node_modules: rm -rf node_modules
+ Удалить файл package-lock.json: rm package-lock.json
+ Очистить кеш: npm cache clean --force кеш npm cache clean --force
+ Запустить npm install --verbose Если после выполнения вышеуказанных шагов все еще существует проблема, пожалуйста, сообщите нам вывод команды установки с помощью --verbose.
  
     
